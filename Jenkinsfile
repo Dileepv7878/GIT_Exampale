@@ -4,9 +4,12 @@ node
     {
         echo "This is Code Download from GIT Project Repository.................."
     }
-    stage('Build')
-    {
-        echo "This is Build project using maven.................."
+
+      stage('Build') {
+            steps {
+               
+                git 'https://github.com/Dileepv7878/Sample_Groovy.git'
+                sh 'mvn clean install'
     }
     stage('Test')
     {
