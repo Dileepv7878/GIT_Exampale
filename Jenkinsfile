@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    tools {
+        // Configure Maven tool
+        maven 'MavenInstallationName'
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -8,9 +13,7 @@ pipeline {
                 git 'https://github.com/Dileepv7878/Sample_Groovy.git'
 
                 // Run Maven build
-                script {
-                    sh 'mvn clean install'
-                }
+                sh 'mvn clean install'
             }
         }
     }
