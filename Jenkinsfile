@@ -1,26 +1,17 @@
-node
-{
-    stage('Commit')
-    {
-        echo "This is Code Download from GIT Project Repository.................."
-    }
+pipeline {
+    agent any
 
-      stage('Build') {
+    stages {
+        stage('Build') {
             steps {
-               
-                sh 'mvn clean install'
-    }
-      }
-    stage('Test')
-    {
-       sh 'mvn clean test'
-    }
-    stage('Release')
-    {
-        echo "This is Delivery using Dcoker......................................"
-    }
-    stage('Monitor')
-    {
-        echo "This is Application Logs Monitorinig using tool Splunk............."
+                // Checkout your source code from version control system
+                git 'https://github.com/Dileepv7878/Sample_Groovy.git'
+
+                // Run Maven build
+                script {
+                    sh 'mvn clean install'
+                }
+            }
+        }
     }
 }
