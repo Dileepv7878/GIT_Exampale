@@ -1,16 +1,11 @@
 pipeline {
     agent any
 
-    tools {
-        // Configure Maven tool
-        maven 'MavenInstallationName'
-    }
-
     stages {
         stage('Build') {
             steps {
                 // Checkout your source code from version control system
-                git 'https://github.com/Dileepv7878/Sample_Groovy.git'
+                git 'https://github.com/Dileepv7878/GIT_Exampale.git'
 
                 // Run Maven build
                 sh 'mvn clean install'
